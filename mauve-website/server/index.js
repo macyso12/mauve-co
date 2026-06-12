@@ -5,7 +5,7 @@ import { insertInquiry } from './db.js';
 const app = express();
 const PORT = 3000;
 
-const VALID_PACKAGES = new Set(['hourly-helper', 'partial-planning', 'full-coordination']);
+const VALID_PACKAGES = new Set(['hourly-helper', 'day-of-coordinator', 'partial-planning', 'full-coordination']);
 const VALID_ADDONS = new Set([
   'welcome-bag', 'rehearsal-dinner', 'timeline-creation', 'emergency-kit', 'seating-chart',
 ]);

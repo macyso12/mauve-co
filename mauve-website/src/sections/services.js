@@ -6,6 +6,12 @@ export const PACKAGES = [
     description: 'An extra set of hands exactly when you need it - vendor calls, logistics, day-of support.',
   },
   {
+    id: 'day-of-coordinator',
+    name: 'Day-Of Coordinator',
+    price: 'From $800',
+    description: 'We handle everything on your wedding day so you can be fully present - timeline management, vendor coordination, and on-site problem solving from start to finish.',
+  },
+  {
     id: 'partial-planning',
     name: 'Partial Planning',
     price: 'From $1,500',
