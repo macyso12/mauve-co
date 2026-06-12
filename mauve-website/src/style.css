@@ -238,7 +238,7 @@ input.invalid, select.invalid, textarea.invalid {
 .services-section { background: var(--color-off-white); }
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
   margin-bottom: var(--space-lg);
 }
