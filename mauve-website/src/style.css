@@ -265,6 +265,109 @@ input.invalid, select.invalid, textarea.invalid {
 .package-desc { font-size: 0.95rem; color: var(--color-text-muted); }
 .services-cta { text-align: center; }
 
+/* ── ABOUT ── */
+.about-section { background: var(--color-cream); }
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.about-bio {
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.about-coverage {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--color-off-white);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-dark-red);
+}
+.about-coverage-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-dark-red);
+  margin-bottom: var(--space-xs);
+}
+.about-coverage p { font-size: 0.95rem; margin-bottom: 0.25rem; }
+.about-coverage-note { color: var(--color-text-muted); font-size: 0.88rem !important; }
+.inline-link { color: var(--color-dark-red); text-decoration: underline; }
+.about-card {
+  background: var(--color-dark-red);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  min-width: 220px;
+}
+.about-stats { display: flex; flex-direction: column; gap: var(--space-md); width: 100%; }
+.stat-item { text-align: center; }
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-cream);
+  line-height: 1;
+}
+.stat-label {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(245,240,232,0.7);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.about-cta { background: var(--color-cream); color: var(--color-dark-red); }
+.about-cta:hover { background: var(--color-off-white); }
+
+/* ── HOW IT WORKS ── */
+.hiw-section { background: var(--color-off-white); }
+.hiw-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+  max-width: 680px;
+  margin-inline: auto;
+}
+.hiw-step {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+.hiw-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-dark-red);
+  opacity: 0.25;
+  line-height: 1;
+  min-width: 3rem;
+  flex-shrink: 0;
+}
+.hiw-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-dark-red);
+  margin-bottom: 0.35rem;
+}
+.hiw-desc { color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65; }
+.hiw-contact {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
 /* ── COMPARE TABLE ── */
 .compare-section { background: var(--color-off-white); }
 .compare-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
@@ -353,6 +456,7 @@ input.invalid, select.invalid, textarea.invalid {
 .addon-item:hover { background: #f0e9df; }
 .addon-bullet { color: var(--color-dark-red); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
 .addon-name { font-weight: 600; font-size: 0.95rem; color: var(--color-text); }
+.addon-price { font-weight: 700; color: var(--color-dark-red); margin-left: 0.4rem; }
 .addons-cta { text-align: center; }
 
 /* ── BOOKING ── */
@@ -407,6 +511,10 @@ input.invalid, select.invalid, textarea.invalid {
   .mascot-img { max-width: 260px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: var(--space-md); }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-card { flex-direction: row; flex-wrap: wrap; justify-content: center; min-width: unset; }
+  .about-stats { flex-direction: row; justify-content: center; }
+  .hiw-step { gap: var(--space-sm); }
   .nav-list {
     display: none; flex-direction: column;
     position: absolute; top: 100%; left: 0; right: 0;
