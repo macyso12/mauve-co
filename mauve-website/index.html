@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The Mauve & Co. — wedding planning & event helper service in NYC. Hourly Helper, Partial Planning, and Full Coordination packages." />
+    <meta property="og:title" content="The Mauve & Co. | Wedding Planning & Event Helper" />
+    <meta property="og:description" content="Planning a wedding or event in NYC? We're here to help." />
+    <meta property="og:image" content="/assets/logo-cream.png" />
+    <title>The Mauve &amp; Co. | Wedding Planning &amp; Event Helper Service</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+
+    <!-- ── HEADER / NAV ── -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a href="#hero" class="logo-link" aria-label="The Mauve & Co. — back to top">
+          <img src="/assets/logo-cream.png" alt="The Mauve & Co." class="header-logo" />
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#addons" class="nav-link">Add-Ons</a></li>
+            <li><a href="#book" class="nav-link nav-cta">Book Today</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── HERO ── -->
+      <section id="hero" class="section hero-section">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1 class="hero-headline">BOOK TODAY</h1>
+            <h2 class="hero-subheadline">Planning a wedding or event in NYC?<br /><em>We're here to help.</em></h2>
+            <p class="hero-body">Whether you need a full planning partner, someone to take over in the final weeks, or just an extra set of hands on the day — we've got you covered.</p>
+            <a href="#book" class="btn btn-primary">Book a Consultation</a>
+          </div>
+          <div class="hero-mascot">
+            <img src="/assets/mascots.png" alt="The Mauve & Co. duck mascots" loading="eager" class="mascot-img" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SERVICES ── -->
+      <section id="services" class="section services-section">
+        <div class="container">
+          <h2 class="section-title">Our Services</h2>
+          <div id="packages-grid" class="packages-grid" role="list"></div>
+          <div class="services-cta">
+            <a href="#book" class="btn btn-primary">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ADD-ONS ── -->
+      <section id="addons" class="section addons-section">
+        <div class="container">
+          <h2 class="section-title">Add-On Options</h2>
+          <p class="section-intro">Customize your experience with any of our add-ons.</p>
+          <ul id="addons-list" class="addons-list" role="list"></ul>
+          <div class="addons-cta">
+            <a href="#book" class="btn btn-outline">Include Add-Ons in Your Inquiry</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── BOOKING FORM ── -->
+      <section id="book" class="section booking-section">
+        <div class="container booking-inner">
+          <div class="booking-header">
+            <img src="/assets/logo-white.png" alt="The Mauve & Co." class="booking-logo" />
+            <h2 class="section-title light">Book a Consultation</h2>
+            <p class="section-intro light">Tell us about your event and we'll be in touch within 24 hours.</p>
+          </div>
+
+          <form id="booking-form" class="booking-form" novalidate aria-label="Booking inquiry form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Your Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="f-name" name="name" autocomplete="name" required maxlength="100" placeholder="Jane Smith" />
+                <span class="field-error" id="f-name-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="f-email">Email Address <span aria-hidden="true">*</span></label>
+                <input type="email" id="f-email" name="email" autocomplete="email" required maxlength="254" placeholder="jane@example.com" />
+                <span class="field-error" id="f-email-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-date">Event Date <span aria-hidden="true">*</span></label>
+                <input type="date" id="f-date" name="event_date" required />
+                <span class="field-error" id="f-date-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="f-package">Service Package <span aria-hidden="true">*</span></label>
+                <select id="f-package" name="package" required>
+                  <option value="">— Select a package —</option>
+                  <option value="hourly-helper">Hourly Helper — $45/hr</option>
+                  <option value="partial-planning">Partial Planning — From $1,500</option>
+                  <option value="full-coordination">Full Coordination — From $3,500</option>
+                </select>
+                <span class="field-error" id="f-package-error" role="alert"></span>
+              </div>
+            </div>
+
+            <fieldset class="form-group addons-fieldset">
+              <legend>Add-Ons <span class="optional-label">(optional)</span></legend>
+              <div class="addons-checks" id="addons-checks"></div>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="f-message">Anything else you'd like us to know? <span class="optional-label">(optional)</span></label>
+              <textarea id="f-message" name="message" rows="4" maxlength="2000" placeholder="Tell us about your vision, venue, guest count…"></textarea>
+            </div>
+
+            <div id="form-status" role="alert" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-submit" id="submit-btn">Send My Inquiry</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="/assets/logo-white.png" alt="The Mauve & Co." class="footer-logo" loading="lazy" />
+          <p class="footer-tagline">wedding planning &amp; event helper service</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#addons">Add-Ons</a>
+          <a href="#book">Book</a>
+        </nav>
+        <div class="footer-social">
+          <a href="https://instagram.com/themauveandco" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="social-link">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+          <a href="https://tiktok.com/@themauveandco" target="_blank" rel="noopener noreferrer" aria-label="Follow us on TikTok" class="social-link">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.11 8.11 0 004.74 1.52V6.75a4.85 4.85 0 01-.97-.06z"/></svg>
+            TikTok
+          </a>
+          <a href="mailto:hello@themauveandco.com" class="social-link" aria-label="Email us">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            hello@themauveandco.com
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 The Mauve &amp; Co. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
