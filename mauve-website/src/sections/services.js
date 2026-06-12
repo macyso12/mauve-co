@@ -3,7 +3,7 @@ export const PACKAGES = [
     id: 'hourly-helper',
     name: 'Hourly Helper',
     price: '$45/hr',
-    description: 'An extra set of hands exactly when you need it — vendor calls, logistics, day-of support.',
+    description: 'An extra set of hands exactly when you need it - vendor calls, logistics, day-of support.',
   },
   {
     id: 'partial-planning',
@@ -15,7 +15,7 @@ export const PACKAGES = [
     id: 'full-coordination',
     name: 'Full Coordination',
     price: 'From $3,500',
-    description: 'Your full planning partner from day one — venue, vendors, timeline, and everything in between.',
+    description: 'Your full planning partner from day one - venue, vendors, timeline, and everything in between.',
   },
 ];
 
