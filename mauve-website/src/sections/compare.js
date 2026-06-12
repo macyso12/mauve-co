@@ -1,3 +1,4 @@
+// Values: true = checkmark, false = dash, string = custom text label
 const FEATURES = [
   { label: 'Setup & breakdown help', hourly: true,  dayof: true,  partial: true,  full: true  },
   { label: 'Vendor receiving & directing', hourly: true,  dayof: true,  partial: true,  full: true  },
@@ -6,21 +7,21 @@ const FEATURES = [
   { label: 'Full day-of coordination (ceremony + reception)', hourly: false, dayof: true,  partial: true,  full: true  },
   { label: 'Timeline management & creation', hourly: false, dayof: true,  partial: true,  full: true  },
   { label: 'Rehearsal coordination', hourly: false, dayof: true,  partial: true,  full: true  },
-  { label: 'Initial consultation (1–2 sessions)', hourly: true,  dayof: true,  partial: true,  full: true  },
-  { label: 'Vendor recommendations', hourly: false, dayof: false, partial: true,  full: true  },
+  { label: 'Initial consultation', hourly: '1 booking call', dayof: '1 booking call', partial: '1–2 sessions', full: '1–2 sessions' },
+  { label: 'Vendor recommendations', hourly: false, dayof: true,  partial: true,  full: true  },
   { label: 'Unlimited email contact (final 4–6 weeks)', hourly: false, dayof: false, partial: true,  full: true  },
-  { label: 'Up to 2 venue walkthroughs', hourly: false, dayof: false, partial: true,  full: true  },
+  { label: 'Venue walkthrough(s)', hourly: false, dayof: 'Up to 1', partial: 'Up to 2', full: 'Up to 2'  },
   { label: 'Venue scouting & booking assistance', hourly: false, dayof: false, partial: false, full: true  },
   { label: 'Full vendor sourcing & contract review', hourly: false, dayof: false, partial: false, full: true  },
   { label: 'Budget tracking & RSVP management', hourly: false, dayof: false, partial: false, full: true  },
   { label: 'Engagement party / shower coordination', hourly: false, dayof: false, partial: false, full: true  },
   { label: 'Unlimited contact throughout planning', hourly: false, dayof: false, partial: false, full: true  },
-  { label: 'Lead coordinator + assistant on wedding day', hourly: false, dayof: false, partial: false, full: true  },
+  { label: 'Lead coordinator + assistant on wedding day', hourly: false, dayof: true,  partial: true,  full: true  },
 ];
 
 const PACKAGES = [
   { key: 'hourly', name: 'Hourly Helper',       price: '$45/hr',       note: '3-hr minimum' },
-  { key: 'dayof',  name: 'Day-Of Coordinator',  price: 'From $800',    note: null },
+  { key: 'dayof',  name: 'Day-Of Coordinator',  price: 'From $800',    note: 'Full event day' },
   { key: 'partial',name: 'Partial Planning',    price: 'From $1,500',  note: null },
   { key: 'full',   name: 'Full Coordination',   price: 'From $3,500',  note: null },
 ];
@@ -41,9 +42,14 @@ export function renderCompare() {
   `).join('');
 
   const bodyRows = FEATURES.map(f => {
-    const cells = PACKAGES.map(p =>
-      `<td class="compare-cell" aria-label="${f.label}: ${f[p.key] ? 'included' : 'not included'}">${f[p.key] ? CHECK : DASH}</td>`
-    ).join('');
+    const cells = PACKAGES.map(p => {
+      const val = f[p.key];
+      const content = typeof val === 'string'
+        ? `<span class="compare-text-val">${val}</span>`
+        : val ? CHECK : DASH;
+      const label = typeof val === 'string' ? val : val ? 'included' : 'not included';
+      return `<td class="compare-cell" aria-label="${f.label}: ${label}">${content}</td>`;
+    }).join('');
     return `<tr><th scope="row" class="compare-feature">${f.label}</th>${cells}</tr>`;
   }).join('');
 
