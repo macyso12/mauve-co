@@ -303,7 +303,7 @@ input.invalid, select.invalid, textarea.invalid {
 }
 .booking-inner { max-width: 720px; }
 .booking-header { text-align: center; margin-bottom: var(--space-lg); }
-.booking-logo { height: 130px; width: auto; margin-inline: auto; margin-bottom: var(--space-md); }
+.booking-logo { height: 120px; width: auto; margin-inline: auto; margin-bottom: var(--space-md); }
 .booking-form { display: flex; flex-direction: column; gap: var(--space-md); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
 .form-group { display: flex; flex-direction: column; gap: var(--space-xs); }
