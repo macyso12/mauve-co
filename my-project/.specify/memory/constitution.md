@@ -1,50 +1,116 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version change: (none) → 1.0.0 (initial ratification)
+Added principles:
+  - I. Code Quality
+  - II. Testing Standards (NON-NEGOTIABLE)
+  - III. User Experience Consistency
+  - IV. Performance Requirements
+Added sections:
+  - Quality Gates
+  - Governance
+Templates reviewed:
+  - .specify/templates/plan-template.md  ✅ Constitution Check section present; performance/testing fields align
+  - .specify/templates/spec-template.md  ✅ Success Criteria section supports measurable UX/perf outcomes
+  - .specify/templates/tasks-template.md ✅ Test-first task ordering and Polish phase align with principles
+Deferred items: none
+-->
+
+# mauve-co Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Every piece of code merged to the main branch MUST meet the following baseline:
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- Code MUST be readable: names are self-explanatory; logic is linear where possible.
+- Functions and modules MUST have a single, well-defined responsibility (SRP).
+- Duplication MUST be eliminated at the abstraction boundary — three or more identical
+  blocks MUST be extracted; fewer than three SHOULD remain inline.
+- All public interfaces MUST be typed (static types, contracts, or schemas).
+- Code MUST pass linting and formatting checks in CI with zero warnings suppressed
+  without explicit justification in a code comment.
+- Complexity MUST be justified: any cyclomatic complexity above 10 in a single function
+  MUST be accompanied by a comment explaining why it cannot be simplified.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. Testing Standards (NON-NEGOTIABLE)
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+Test-driven development is mandatory for all feature work:
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- Tests MUST be written before implementation (TDD Red-Green-Refactor cycle).
+- A PR MUST NOT be merged if any test it touches was written after the implementation
+  it covers, unless the PR is a pure bug fix with a regression test.
+- Unit tests MUST cover all public functions and MUST assert on behavior, not
+  implementation details.
+- Integration tests MUST cover every inter-service boundary and every user-facing flow.
+- Contract tests MUST be written for any shared schema, API endpoint, or event payload
+  that crosses a module boundary.
+- Test coverage MUST not decrease on any PR; the baseline is enforced by CI.
+- Flaky tests MUST be fixed or quarantined within one sprint of detection; they MUST
+  NOT be silently skipped.
+- Every failing test suite MUST block merge — no exceptions, no `--skip` overrides
+  in CI without an approved incident justification.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. User Experience Consistency
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+All user-facing surfaces MUST conform to a single, coherent design and interaction model:
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Visual language MUST follow the established design system (tokens, spacing, typography,
+  color palette). Ad-hoc styles that bypass the system are prohibited.
+- Interaction patterns MUST be consistent: the same user action MUST produce the same
+  result everywhere in the product (e.g., a destructive action always requires
+  confirmation; navigation always follows the same hierarchy).
+- Error messages MUST be human-readable, actionable, and consistent in tone and format.
+  Technical stack traces MUST never be exposed to end users.
+- Accessibility MUST meet WCAG 2.1 AA as a minimum for all new UI work.
+- All user-facing copy MUST be reviewed for clarity before merge; placeholder text
+  (e.g., "Lorem ipsum", "[TODO]") MUST NOT reach production.
+- New UX patterns that deviate from existing conventions MUST be documented in the
+  design system and approved before implementation begins.
+
+### IV. Performance Requirements
+
+Performance is a feature and MUST be treated as a first-class concern:
+
+- API endpoints and page loads MUST meet defined p95 latency targets before a feature
+  ships. Default targets (unless overridden per feature): **200 ms p95** for API,
+  **2 s p95** for full page load on a median device.
+- Background jobs and batch processes MUST define and document throughput targets in
+  their feature spec.
+- Performance regressions of more than **10%** against the established baseline MUST
+  block merge. Baselines are tracked in CI via load/benchmark tests.
+- Memory usage MUST not grow unboundedly; any feature introducing unbounded state
+  MUST implement eviction, pagination, or streaming.
+- Third-party dependencies MUST be evaluated for bundle size and runtime overhead
+  before adoption; additions that increase the production bundle by more than **5%**
+  require explicit approval.
+
+## Quality Gates
+
+Every PR MUST pass the following gates before merge:
+
+1. **Code Quality**: Linting, formatting, and type-check CI jobs are green.
+2. **Test Coverage**: Coverage does not decrease; all tests pass.
+3. **Performance**: No benchmark regression > 10% vs. baseline.
+4. **UX Review**: Any UI change has been reviewed against the design system.
+5. **Constitution Check**: The plan template's Constitution Check section has been
+   filled and all applicable principles are satisfied or violations are documented
+   in the Complexity Tracking table.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes all team conventions, wiki pages, and verbal agreements.
+- Amendments require: (a) a written proposal describing the change and rationale,
+  (b) approval from at least two senior contributors, and (c) a migration plan for
+  existing code that violates the new rule.
+- The constitution version follows semantic versioning:
+  - **MAJOR**: A principle is removed or redefined in a backward-incompatible way.
+  - **MINOR**: A new principle or section is added, or guidance is materially expanded.
+  - **PATCH**: Clarifications, wording fixes, or non-semantic refinements.
+- All PRs and code reviews MUST verify compliance with the applicable principles.
+- Complexity MUST be justified; if a rule cannot be followed, the reason MUST be
+  documented in the Complexity Tracking table of the relevant plan.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-06-12 | **Last Amended**: 2026-06-12
