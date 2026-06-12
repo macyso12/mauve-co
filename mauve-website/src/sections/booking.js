@@ -78,27 +78,27 @@ export function initBookingForm() {
     submitBtn.textContent = 'Sending…';
 
     try {
-      const res = await fetch('/api/inquiries', {
+      const formspreeId = form.dataset.formspree;
+      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          event_date: data.event_date,
+          package: data.package,
+          addons: data.addons.join(', ') || 'None',
+          message: data.message,
+        }),
       });
       const json = await res.json();
 
-      if (res.ok && json.ok) {
+      if (res.ok) {
         statusEl.className = 'success';
-        statusEl.textContent = json.message;
+        statusEl.textContent = "Thank you! We'll be in touch within 24 hours.";
         form.reset();
-      } else if (res.status === 400 && json.errors) {
-        const fieldMap = { name: 'f-name', email: 'f-email', event_date: 'f-date', package: 'f-package' };
-        Object.entries(json.errors).forEach(([field, msg]) => {
-          const id = fieldMap[field] || field;
-          setFieldError(id, msg);
-        });
-        statusEl.className = 'error';
-        statusEl.textContent = 'Please correct the errors above and try again.';
       } else {
-        throw new Error(json.message || 'Server error');
+        throw new Error(json.error || 'Server error');
       }
     } catch (err) {
       statusEl.className = 'error';
