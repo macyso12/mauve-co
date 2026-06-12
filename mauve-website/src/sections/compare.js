@@ -6,7 +6,7 @@ const FEATURES = [
   { label: 'Full day-of coordination (ceremony + reception)', hourly: false, dayof: true,  partial: true,  full: true  },
   { label: 'Timeline management & creation', hourly: false, dayof: true,  partial: true,  full: true  },
   { label: 'Rehearsal coordination', hourly: false, dayof: true,  partial: true,  full: true  },
-  { label: 'Initial consultation (1–2 sessions)', hourly: false, dayof: false, partial: true,  full: true  },
+  { label: 'Initial consultation (1–2 sessions)', hourly: true,  dayof: true,  partial: true,  full: true  },
   { label: 'Vendor recommendations', hourly: false, dayof: false, partial: true,  full: true  },
   { label: 'Unlimited email contact (final 4–6 weeks)', hourly: false, dayof: false, partial: true,  full: true  },
   { label: 'Up to 2 venue walkthroughs', hourly: false, dayof: false, partial: true,  full: true  },
