@@ -142,7 +142,7 @@ input.invalid, select.invalid, textarea.invalid {
   justify-content: space-between;
   padding-block: 0.75rem;
 }
-.header-logo { height: 52px; width: auto; }
+.header-logo { height: 90px; width: auto; }
 .logo-link:focus-visible { outline: 2px solid var(--color-dark-red); border-radius: var(--radius-sm); }
 .nav-list {
   display: flex;
@@ -303,7 +303,7 @@ input.invalid, select.invalid, textarea.invalid {
 }
 .booking-inner { max-width: 720px; }
 .booking-header { text-align: center; margin-bottom: var(--space-lg); }
-.booking-logo { height: 72px; width: auto; margin-inline: auto; margin-bottom: var(--space-md); }
+.booking-logo { height: 130px; width: auto; margin-inline: auto; margin-bottom: var(--space-md); }
 .booking-form { display: flex; flex-direction: column; gap: var(--space-md); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
 .form-group { display: flex; flex-direction: column; gap: var(--space-xs); }
@@ -322,7 +322,7 @@ input.invalid, select.invalid, textarea.invalid {
 /* ── FOOTER ── */
 .site-footer { background: var(--color-footer-bg); color: var(--color-cream); padding-block: var(--space-xl); }
 .footer-inner { display: grid; grid-template-columns: 1fr auto auto; gap: var(--space-lg); align-items: start; }
-.footer-logo { height: 48px; width: auto; margin-bottom: var(--space-xs); }
+.footer-logo { height: 90px; width: auto; margin-bottom: var(--space-xs); }
 .footer-tagline { font-family: var(--font-script); font-size: 1rem; opacity: 0.8; }
 .footer-links { display: flex; flex-direction: column; gap: var(--space-xs); }
 .footer-links a { font-size: 0.9rem; opacity: 0.8; transition: opacity var(--transition); }
