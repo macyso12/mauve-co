@@ -13,11 +13,8 @@ export function renderAddons() {
   if (!list) return;
   list.innerHTML = ADDONS.map(a => `
     <li class="addon-item" role="listitem">
-      <span class="addon-bullet" aria-hidden="true">•</span>
-      <div>
-        <p class="addon-name">${a.name} <span class="addon-price">${a.price}</span></p>
-        <p class="addon-desc">${a.description}</p>
-      </div>
+      <p class="addon-name">${a.name} <span class="addon-price">${a.price}</span></p>
+      <p class="addon-desc">${a.description}</p>
     </li>
   `).join('');
 }
