@@ -142,7 +142,7 @@ input.invalid, select.invalid, textarea.invalid {
   justify-content: space-between;
   padding-block: 0.75rem;
 }
-.header-logo { height: 90px; width: auto; }
+.header-logo { height: 75px; width: auto; }
 .logo-link:focus-visible { outline: 2px solid var(--color-dark-red); border-radius: var(--radius-sm); }
 .nav-list {
   display: flex;
