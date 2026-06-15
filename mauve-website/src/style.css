@@ -458,6 +458,61 @@ input.invalid, select.invalid, textarea.invalid {
 .addon-price { font-weight: 700; color: var(--color-dark-red); margin-left: 0.4rem; }
 .addons-cta { text-align: center; }
 
+/* ── PACKAGE ESTIMATOR ── */
+.estimator-wrap { margin-bottom: var(--space-lg); }
+.estimator-toggle {
+  width: 100%;
+  padding: 0.9rem var(--space-md);
+  background: rgba(245,240,232,0.12);
+  border: 1.5px dashed rgba(245,240,232,0.4);
+  border-radius: var(--radius-md);
+  color: var(--color-cream);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.estimator-toggle:hover { background: rgba(245,240,232,0.2); border-color: rgba(245,240,232,0.7); }
+.estimator-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.estimator-panel.open { max-height: 600px; }
+.est-progress { margin: var(--space-md) 0 var(--space-sm); }
+.est-step { font-size: 0.8rem; color: rgba(245,240,232,0.6); display: block; margin-bottom: 6px; }
+.est-bar { height: 4px; background: rgba(245,240,232,0.2); border-radius: 99px; }
+.est-fill { height: 100%; background: var(--color-cream); border-radius: 99px; transition: width 0.3s ease; }
+.est-question {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-cream);
+  margin-bottom: var(--space-sm);
+}
+.est-options { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: var(--space-sm); }
+.est-option {
+  padding: 0.7rem var(--space-sm);
+  background: rgba(245,240,232,0.1);
+  border: 1px solid rgba(245,240,232,0.25);
+  border-radius: var(--radius-sm);
+  color: var(--color-cream);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.est-option:hover { background: rgba(245,240,232,0.22); border-color: rgba(245,240,232,0.6); }
+.est-back { background: none; color: rgba(245,240,232,0.6); font-size: 0.85rem; padding: 0; cursor: pointer; }
+.est-back:hover { color: var(--color-cream); }
+.est-result { padding: var(--space-md) 0; }
+.est-result-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(245,240,232,0.6); margin-bottom: 0.25rem; }
+.est-result-name { font-family: var(--font-display); font-size: 1.6rem; color: var(--color-cream); margin-bottom: 0.5rem; }
+.est-result-desc { color: rgba(245,240,232,0.8); font-size: 0.92rem; line-height: 1.6; margin-bottom: var(--space-md); }
+.est-result-actions { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+.est-restart { background: none; color: rgba(245,240,232,0.6); font-size: 0.85rem; padding: 0; cursor: pointer; }
+.est-restart:hover { color: var(--color-cream); }
+
 /* ── BOOKING ── */
 .booking-section {
   background: var(--color-dark-red);
