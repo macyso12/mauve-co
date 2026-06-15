@@ -3,7 +3,7 @@ export const ADDONS = [
   { id: 'rehearsal-dinner',  name: 'Rehearsal Dinner Coordination', price: '$175', description: 'Full rehearsal dinner planning and on-site coordination.' },
   { id: 'emergency-kit',     name: 'Emergency Bridal Kit',          price: '$55',  description: 'Fully stocked kit on-hand for any day-of surprises.' },
   { id: 'seating-chart',     name: 'Seating Chart Management',      price: '$50',  description: 'Design and finalize your seating arrangement with ease.' },
-  { id: 'vendor-research',   name: 'Vendor Research & Shortlist',   price: '$100', description: 'We research and curate 3-5 vetted vendor options per category (photographer, florist, caterer, etc.).' },
+  { id: 'vendor-research',   name: 'Vendor Research & Shortlist',   price: '$75',  description: 'We research and curate 3-5 vetted vendor options per category (photographer, florist, caterer, etc.).' },
   { id: 'wedding-website',   name: 'Wedding Website Setup',         price: '$85',  description: 'We set up your Zola or The Knot wedding website with all event details, RSVP, and registry links.' },
   { id: 'stationery-design', name: 'Stationery Design',             price: '$125', description: 'Custom design for invitations, save-the-dates, menus, programs, and more.' },
 ];
