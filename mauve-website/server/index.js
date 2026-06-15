@@ -7,7 +7,7 @@ const PORT = 3000;
 
 const VALID_PACKAGES = new Set(['hourly-helper', 'day-of-coordinator', 'partial-planning', 'full-coordination']);
 const VALID_ADDONS = new Set([
-  'welcome-bag', 'rehearsal-dinner', 'emergency-kit', 'seating-chart', 'vendor-research', 'wedding-website',
+  'welcome-bag', 'rehearsal-dinner', 'emergency-kit', 'seating-chart', 'vendor-research', 'wedding-website', 'stationery-design',
 ]);
 
 app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:4173'] }));
