@@ -2,8 +2,8 @@ export const PACKAGES = [
   {
     id: 'hourly-helper',
     name: 'Hourly Helper',
-    price: '$45/hr',
-    description: 'An extra set of hands exactly when you need it - vendor calls, logistics, day-of support.',
+    price: '$55/hr',
+    description: 'An extra set of hands exactly when you need it - vendor calls, logistics, day-of support. 2-hour minimum.',
   },
   {
     id: 'day-of-coordinator',

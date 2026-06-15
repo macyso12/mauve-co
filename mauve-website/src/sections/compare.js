@@ -20,7 +20,7 @@ const FEATURES = [
 ];
 
 const PACKAGES = [
-  { key: 'hourly', name: 'Hourly Helper',       price: '$45/hr',       note: '3-hr minimum' },
+  { key: 'hourly', name: 'Hourly Helper',       price: '$55/hr',       note: '2-hr minimum' },
   { key: 'dayof',  name: 'Day-Of Coordinator',  price: 'From $800',    note: 'Full event day' },
   { key: 'partial',name: 'Partial Planning',    price: 'From $1,500',  note: null },
   { key: 'full',   name: 'Full Coordination',   price: 'From $3,500',  note: null },
