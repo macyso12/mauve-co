@@ -606,23 +606,51 @@ input.invalid, select.invalid, textarea.invalid {
 /* ── ADD-ONS ── */
 .addons-section { background: var(--color-cream); }
 .addons-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  max-width: 680px;
+  margin: 0 auto var(--space-lg);
+  display: flex;
+  flex-direction: column;
 }
 .addon-item {
-  display: block;
-  padding: var(--space-sm);
-  background: var(--color-off-white);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(123,26,26,0.1);
 }
-.addon-item:hover { background: #f0e9df; box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
-.addon-bullet { color: var(--color-dark-red); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-.addon-name { font-weight: 600; font-size: 0.95rem; color: var(--color-text); }
-.addon-price { font-weight: 700; color: var(--color-dark-red); margin-left: 0.4rem; }
+.addon-item:first-child { border-top: 1px solid rgba(123,26,26,0.1); }
+.addon-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.addon-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.addon-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+.addon-dots {
+  flex: 1;
+  border-bottom: 1.5px dotted rgba(123,26,26,0.25);
+  margin-bottom: 0.25rem;
+  min-width: 20px;
+}
+.addon-price {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark-red);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 .addons-cta { text-align: center; }
 
 /* ── PACKAGE ESTIMATOR ── */
