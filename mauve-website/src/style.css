@@ -774,7 +774,6 @@ input.invalid, select.invalid, textarea.invalid {
   }
   .nav-list.open { display: flex; }
   .nav-toggle { display: flex; }
-  .site-header { position: relative; }
   .header-inner { position: relative; }
 }
 @media (max-width: 480px) {
