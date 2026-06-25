@@ -618,7 +618,6 @@ input.invalid, select.invalid, textarea.invalid {
   padding: 1.1rem 0;
   border-bottom: 1px solid rgba(123,26,26,0.1);
 }
-.addon-item:first-child { border-top: 1px solid rgba(123,26,26,0.1); }
 .addon-left {
   display: flex;
   flex-direction: column;
