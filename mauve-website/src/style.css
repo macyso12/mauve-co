@@ -709,7 +709,7 @@ input.invalid, select.invalid, textarea.invalid {
 
 /* ── BOOKING ── */
 .booking-section {
-  background: var(--color-dark-red);
+  background: url('/assets/CTA-bg.jpg') center center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -717,8 +717,8 @@ input.invalid, select.invalid, textarea.invalid {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/assets/mascots.png') right bottom / 300px no-repeat;
-  opacity: 0.05;
+  background: rgba(30, 8, 8, 0.62);
+  opacity: 1;
   pointer-events: none;
 }
 .booking-inner { max-width: 720px; }
