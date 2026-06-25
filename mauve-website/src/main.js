@@ -2,12 +2,10 @@ import './style.css';
 import { renderServices } from './sections/services.js';
 import { renderAddons, renderAddonCheckboxes } from './sections/addons.js';
 import { initBookingForm } from './sections/booking.js';
-import { renderCompare } from './sections/compare.js';
 import { initEstimator } from './sections/estimator.js';
 
 // Render dynamic sections
 renderServices();
-renderCompare();
 renderAddons();
 renderAddonCheckboxes();
 initEstimator();
