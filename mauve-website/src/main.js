@@ -67,6 +67,22 @@ function initAboutAnimations() {
 }
 initAboutAnimations();
 
+// How It Works accordion cards
+function initHiwCards() {
+  const cards = document.querySelectorAll('.hiw-card');
+  if (!cards.length) return;
+  cards.forEach(card => {
+    const activate = () => {
+      cards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-expanded', 'false'); });
+      card.classList.add('active');
+      card.setAttribute('aria-expanded', 'true');
+    };
+    card.addEventListener('click', activate);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+  });
+}
+initHiwCards();
+
 // Sticky header shadow on scroll
 const header = document.getElementById('site-header');
 const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 10);
