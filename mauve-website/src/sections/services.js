@@ -102,7 +102,6 @@ export function renderServices() {
     <article class="package-card ${pkg.popular ? 'package-card--popular' : ''}" role="listitem">
       ${pkg.popular ? '<span class="package-badge">Most Popular</span>' : ''}
       <div class="package-top">
-        <span class="package-num">${pkg.num}</span>
         <h3 class="package-name">${pkg.name}</h3>
         <div class="package-price-row">
           <span class="package-price">${pkg.price}</span>${pkg.unit ? `<span class="package-unit">${pkg.unit}</span>` : ''}
