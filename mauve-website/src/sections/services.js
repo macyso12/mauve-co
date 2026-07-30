@@ -19,6 +19,12 @@ export const PACKAGES = [
       'Errands & last-minute runs',
       '1 initial booking call',
     ],
+    notIncluded: [
+      'Vendor communication',
+      'Timeline building',
+      'Venue walkthrough',
+      'Full day management',
+    ],
   },
   {
     id: 'day-of-coordinator',
@@ -94,6 +100,7 @@ export const PACKAGES = [
 
 const CHECK_BEST = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 8.5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const CHECK_INC  = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const X_ICON     = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`;
 
 export function renderServices() {
   const grid = document.getElementById('packages-grid');
@@ -121,6 +128,14 @@ export function renderServices() {
           ${pkg.features.map(f => `<li class="package-feature">${CHECK_INC}<span>${f}</span></li>`).join('')}
         </ul>
       </div>
+      ${pkg.notIncluded ? `
+      <hr class="package-divider">
+      <div class="package-not-included">
+        <p class="package-section-label">Not included:</p>
+        <ul class="package-features">
+          ${pkg.notIncluded.map(f => `<li class="package-feature package-feature--no">${X_ICON}<span>${f}</span></li>`).join('')}
+        </ul>
+      </div>` : ''}
       <a href="#book" class="btn ${pkg.popular ? 'btn-primary-inv' : 'btn-primary'} package-cta">Get Started</a>
     </article>
   `).join('');
