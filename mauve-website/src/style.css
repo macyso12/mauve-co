@@ -404,6 +404,9 @@ input.invalid, select.invalid, textarea.invalid {
 .package-card--popular .package-feature { color: rgba(245,240,232,0.9); }
 .package-feature svg { flex-shrink: 0; margin-top: 2px; color: var(--color-dark-red); }
 .package-card--popular .package-feature svg { color: var(--color-cream); }
+.package-feature--no { opacity: 0.45; }
+.package-feature--no svg { color: var(--color-text-muted); }
+.package-card--popular .package-feature--no svg { color: rgba(245,240,232,0.5); }
 
 .package-cta { width: 100%; text-align: center; margin-top: auto; }
 .btn-primary-inv {
