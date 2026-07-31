@@ -5,7 +5,11 @@ export const ADDONS = [
   { id: 'seating-chart',     name: 'Seating Chart Management',      price: '$35',  description: 'Design and finalize your seating arrangement.' },
   { id: 'vendor-research',   name: 'Vendor Research & Shortlist',   price: '$45',  description: '3–5 vetted vendor options per category, curated for you.' },
   { id: 'wedding-website',   name: 'Wedding Website Setup',         price: '$50',  description: 'Zola or The Knot setup with details, RSVP & registry.' },
-  { id: 'stationery-design', name: 'Stationery Design',             price: '$125', description: 'Custom invitations, save-the-dates, menus & programs.' },
+  { id: 'stationery-design',    name: 'Stationery Design',            price: '$125', description: 'Custom invitations, save-the-dates, menus & programs.' },
+  { id: 'vendor-communication', name: 'Vendor Communication',         price: '$75',  description: 'Reaching out to and coordinating with all vendors leading up to your event.' },
+  { id: 'timeline-building',    name: 'Timeline Building',            price: '$65',  description: 'A detailed, customized day-of timeline built around your venue, vendors, and vision.' },
+  { id: 'venue-walkthrough',    name: 'Venue Walkthrough',            price: '$85',  description: 'An in-person site visit to assess the space, flow, and setup logistics ahead of your event.' },
+  { id: 'full-day-management',  name: 'Full Day Management',          price: '$250', description: 'Full on-site presence from start to finish — we run the day so you don\'t have to.' },
 ];
 
 export function renderAddons() {
