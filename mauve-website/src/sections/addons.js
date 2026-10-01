@@ -1,9 +1,8 @@
 export const ADDONS = [
-  { id: 'rehearsal-dinner',  name: 'Rehearsal Dinner Coordination', price: '$175', description: 'Full on-site coordination for your rehearsal dinner.' },
-  { id: 'vendor-research',   name: 'Vendor Research & Shortlist',   price: '$45',  description: '3–5 vetted vendor options per category, curated for you.' },
+  { id: 'vendor-research',   name: 'Vendor Discovery & Shortlist',  price: '$50',  description: '3–5 vetted vendor options per category, curated for you.' },
   { id: 'wedding-website',   name: 'Wedding Website Setup',         price: '$50',  description: 'Zola or The Knot setup with details, RSVP & registry.' },
   { id: 'stationery-design', name: 'Stationery Design',             price: '$125', description: 'Custom invitations, save-the-dates, menus & programs.' },
-  { id: 'timeline-building', name: 'Timeline Building',             price: '$35',  description: 'A detailed, customized day-of timeline built around your venue, vendors, and vision.' },
+  { id: 'timeline-building', name: 'Timeline Building',             price: '$50',  description: 'A detailed, customized day-of timeline built around your venue, vendors, and vision.' },
   { id: 'trilingual',        name: 'Trilingual Support',            price: 'Free', description: 'Coordination available in English, Cantonese, and Mandarin.' },
 ];
 

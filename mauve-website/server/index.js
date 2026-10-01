@@ -7,7 +7,7 @@ const PORT = 3000;
 
 const VALID_PACKAGES = new Set(['hourly-helper', 'day-of-coordinator', 'partial-planning', 'full-coordination']);
 const VALID_ADDONS = new Set([
-  'rehearsal-dinner', 'vendor-research', 'wedding-website', 'stationery-design',
+  'vendor-research', 'wedding-website', 'stationery-design',
   'timeline-building', 'trilingual',
 ]);
 
