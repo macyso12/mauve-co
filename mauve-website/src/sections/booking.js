@@ -36,6 +36,9 @@ function validateForm(data) {
   if (!data.package) {
     errors['f-package'] = 'Please select a service package.';
   }
+  if (!data.message || data.message.trim().length < 1) {
+    errors['f-message'] = 'Please tell us about your dream wedding.';
+  }
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
@@ -50,7 +53,7 @@ export function initBookingForm() {
     e.preventDefault();
 
     // Clear previous errors
-    ['f-name', 'f-email', 'f-date', 'f-package'].forEach(id => setFieldError(id, ''));
+    ['f-name', 'f-email', 'f-date', 'f-package', 'f-message'].forEach(id => setFieldError(id, ''));
     statusEl.className = '';
     statusEl.textContent = '';
 
