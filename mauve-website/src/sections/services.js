@@ -3,7 +3,7 @@ export const PACKAGES = [
     id: 'hourly-helper',
     num: '1',
     name: 'Hourly Helper',
-    price: '$55',
+    price: '$80',
     unit: '/hr',
     note: '2-hour minimum',
     popular: false,

@@ -29,7 +29,7 @@ const QUESTIONS = [
 ];
 
 const RESULTS = {
-  hourly:  { value: 'hourly-helper',     label: 'Hourly Helper',      desc: 'Flexible, on-demand help at $55/hr. Perfect for a few extra hands without full planning commitment.' },
+  hourly:  { value: 'hourly-helper',     label: 'Hourly Helper',      desc: 'Flexible, on-demand help at $80/hr. Perfect for a few extra hands without full planning commitment.' },
   dayof:   { value: 'day-of-coordinator',label: 'Day-Of Coordinator', desc: 'Someone to run the show from start to finish on your wedding day, so you can be fully present.' },
   partial: { value: 'partial-planning',  label: 'Partial Planning',   desc: 'We step in for the final stretch - confirming vendors, running rehearsal, and coordinating the day.' },
   full:    { value: 'full-coordination', label: 'Full Coordination',  desc: 'Your complete planning partner from day one - venue, vendors, timeline, and everything in between.' },
