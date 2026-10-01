@@ -5,7 +5,7 @@ export const PACKAGES = [
     name: 'Hourly Helper',
     price: '$80',
     unit: '/hr',
-    note: '2-hour minimum',
+    note: 'Up to 4-hours onsite support',
     popular: false,
     bestFor: [
       'You just need a few extra hands for a couple of hours',
