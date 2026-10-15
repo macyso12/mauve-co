@@ -24,6 +24,7 @@ export const PACKAGES = [
       'Timeline building',
       'Venue walkthrough',
       'Full day management',
+      'Assistant coordinator',
     ],
   },
   {
