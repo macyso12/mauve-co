@@ -44,7 +44,7 @@ export const PACKAGES = [
       'Timeline management',
       'Vendor receiving & directing',
       '1 Lead coordinator + 1 Assistant on wedding day',
-      'Supports up to 2 venue sites',
+      'Supports up to 2 locations',
       '1 initial booking call',
     ],
   },
