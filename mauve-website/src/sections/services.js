@@ -13,10 +13,9 @@ export const PACKAGES = [
       'You have a tight budget but need day-of support',
     ],
     features: [
-      'Setup & breakdown help',
+      'Setup & breakdown',
       'Vendor receiving & directing',
-      'Guest assistance & light coordination',
-      'Errands & last-minute runs',
+      'Guest assistance & coordination',
       '1 initial booking call',
     ],
     notIncluded: [
