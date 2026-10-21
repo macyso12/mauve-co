@@ -1,8 +1,8 @@
 export const ADDONS = [
-  { id: 'vendor-research',   name: 'Vendor Discovery & Shortlist',  price: '$50',  description: '3–5 vetted vendor options per category, curated for you.' },
-  { id: 'wedding-website',   name: 'Wedding Website Setup',         price: '$50',  description: 'Zola or The Knot setup with details, RSVP & registry.' },
-  { id: 'stationery-design', name: 'Stationery Design',             price: '$125', description: 'Custom invitations, save-the-dates, menus & programs.' },
-  { id: 'timeline-building', name: 'Timeline Building',             price: '$50',  description: 'A detailed, customized day-of timeline built around your venue, vendors, and vision.' },
+  { id: 'vendor-research',   name: 'Vendor Discovery & Shortlist',  price: '$100', description: '3–5 vetted vendor options per category, curated for you.' },
+  { id: 'wedding-website',   name: 'Wedding Website Setup',         price: '$100', description: 'Zola or The Knot setup with details, RSVP & registry.' },
+  { id: 'stationery-design', name: 'Stationery Design',             price: '$100', description: 'Custom invitations, save-the-dates, menus & programs.' },
+  { id: 'timeline-building', name: 'Timeline Building',             price: '$100', description: 'A detailed, customized day-of timeline built around your venue, vendors, and vision.' },
   { id: 'trilingual',        name: 'Trilingual Support',            price: 'Free', description: 'Coordination available in English, Cantonese, and Mandarin.' },
 ];
 
