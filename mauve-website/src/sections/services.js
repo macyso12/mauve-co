@@ -41,7 +41,7 @@ export const PACKAGES = [
     ],
     features: [
       'Full day-of coordination (ceremony + reception)',
-      'Timeline management & creation',
+      'Timeline management',
       'Rehearsal coordination',
       'Vendor receiving & directing',
       'Up to 1 venue walkthrough',
