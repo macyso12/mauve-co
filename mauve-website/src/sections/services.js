@@ -68,7 +68,7 @@ export const PACKAGES = [
       'Rehearsal coordination',
       'Full day-of coordination',
       'Unlimited email contact (final 4–6 weeks)',
-      'Up to 2 venue walkthroughs',
+      '1 venue walkthrough',
       'Lead coordinator + assistant on wedding day',
     ],
   },
