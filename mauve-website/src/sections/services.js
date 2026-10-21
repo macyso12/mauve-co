@@ -10,7 +10,7 @@ export const PACKAGES = [
     bestFor: [
       'You have a tight budget but need day-of support',
       'You just need extra hands for a few hours',
-      "You're a creative DIYer, but let's us help to do it together 🤍",
+      "You're a creative DIYer. Let us help to do it together 🤍",
     ],
     features: [
       'Setup & breakdown',
