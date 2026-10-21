@@ -32,8 +32,8 @@ export const PACKAGES = [
     name: 'Day-Of Coordinator',
     price: 'From $800',
     unit: '',
-    note: 'Full event day',
-    popular: false,
+    note: 'Most Popular',
+    popular: true,
     bestFor: [
       "You've planned everything yourself but want to be fully present on your wedding",
       'You want full coverage without paying for months of planning',
@@ -54,8 +54,8 @@ export const PACKAGES = [
     name: 'Partial Planning',
     price: 'From $1,500',
     unit: '',
-    note: 'Most Popular',
-    popular: true,
+    note: 'Partial planning',
+    popular: false,
     bestFor: [
       "You've started planning but need help pulling it all together",
       'You want a coordinator for the final stretch and wedding day',
