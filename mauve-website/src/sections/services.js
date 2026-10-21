@@ -19,11 +19,11 @@ export const PACKAGES = [
       '1 initial booking call',
     ],
     notIncluded: [
+      'Assistant coordinator',
       'Vendor communication',
       'Timeline building',
       'Venue walkthrough',
       'Full day management',
-      'Assistant coordinator',
     ],
   },
   {
