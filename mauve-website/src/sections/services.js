@@ -8,7 +8,7 @@ export const PACKAGES = [
     note: 'Up to 4-hours onsite support',
     popular: false,
     bestFor: [
-      'You have a tight budget but need day-of support',
+      'You need day-of support on a budget',
       'You just need extra hands for a few hours',
       "You're a creative DIYer. Let us help to do it together 🤍",
     ],
