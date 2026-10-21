@@ -35,9 +35,9 @@ export const PACKAGES = [
     note: 'Full event day',
     popular: false,
     bestFor: [
-      "You've planned everything yourself and just need someone to run the day",
+      "You've planned everything yourself but want to be fully present on your wedding day",
       'You want full coverage without paying for months of planning',
-      'You want to be fully present on your wedding day',
+      'You need to satisfy venue requirements of a Day-Of Coordinator (DOC)',
     ],
     features: [
       'Full day-of coordination (ceremony + reception)',
