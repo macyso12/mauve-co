@@ -8,9 +8,9 @@ export const PACKAGES = [
     note: 'Up to 4-hours onsite support',
     popular: false,
     bestFor: [
-      'You just need a few extra hands for a couple of hours',
-      'You want flexible help without a full planning commitment',
       'You have a tight budget but need day-of support',
+      'You just need extra hands for a few hours',
+      "You're a creative, self-DIY-er looking for someone to bring your vision onto your wedding day",
     ],
     features: [
       'Setup & breakdown',
