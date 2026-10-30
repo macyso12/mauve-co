@@ -26,12 +26,13 @@ export const PACKAGES = [
     unit: '/hr',
     note: 'Up to 4-hours onsite support',
     popular: false,
+    inheritsFrom: null,
     bestFor: [
       'You need day-of support on a budget',
       'You just need extra hands for a few hours',
       "You're a creative DIYer. Let us help to do it together 🤍",
     ],
-    included: new Set(['setup', 'vendor-receiving', 'guest-assist', 'consultation']),
+    ownFeatures: ['setup', 'vendor-receiving', 'guest-assist', 'consultation'],
   },
   {
     id: 'day-of-coordinator',
@@ -40,16 +41,13 @@ export const PACKAGES = [
     unit: '',
     note: 'Most Popular',
     popular: true,
+    inheritsFrom: 'Hourly Helper',
     bestFor: [
       "You've planned everything yourself but want to be fully present on your wedding",
       'You want full coverage without paying for months of planning',
       'You need to satisfy venue requirements of an onsite Day-Of Coordinator (DOC)',
     ],
-    included: new Set([
-      'setup', 'vendor-receiving', 'guest-assist', 'consultation',
-      'assistant', 'vendor-comm', 'timeline-mgmt', 'venue-walkthrough',
-      'full-day', 'locations',
-    ]),
+    ownFeatures: ['assistant', 'vendor-comm', 'timeline-mgmt', 'venue-walkthrough', 'full-day', 'locations'],
   },
   {
     id: 'partial-planning',
@@ -58,17 +56,13 @@ export const PACKAGES = [
     unit: '',
     note: 'Partial planning',
     popular: false,
+    inheritsFrom: 'Day-Of Coordinator',
     bestFor: [
       "You've started planning but need help pulling it all together",
       'You want a coordinator for the final stretch and wedding day',
       'You need vendor guidance without full planning fees',
     ],
-    included: new Set([
-      'setup', 'vendor-receiving', 'guest-assist', 'consultation',
-      'assistant', 'vendor-comm', 'timeline-mgmt', 'venue-walkthrough',
-      'full-day', 'locations', 'vendor-recs',
-      'rehearsal', 'unlimited-email',
-    ]),
+    ownFeatures: ['vendor-recs', 'rehearsal', 'unlimited-email'],
   },
   {
     id: 'full-coordination',
@@ -77,14 +71,26 @@ export const PACKAGES = [
     unit: '',
     note: 'All-inclusive',
     popular: false,
+    inheritsFrom: 'Partial Planning',
     bestFor: [
       "You're just getting started and want a partner from day one",
       'You want someone to handle vendors, budget, and logistics',
       'You want the most stress-free planning experience possible',
     ],
-    included: new Set(ALL_FEATURES.map(f => f.id)),
+    ownFeatures: ['venue-scouting', 'vendor-sourcing', 'budget', 'engagement'],
   },
 ];
+
+// Build the cumulative included set for each package
+function buildIncluded(packages) {
+  const allIncluded = [new Set(packages[0].ownFeatures)];
+  for (let i = 1; i < packages.length; i++) {
+    allIncluded.push(new Set([...allIncluded[i - 1], ...packages[i].ownFeatures]));
+  }
+  return allIncluded;
+}
+
+const includedSets = buildIncluded(PACKAGES);
 
 const CHECK_BEST = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 8.5l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const CHECK_INC  = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -93,7 +99,21 @@ const X_ICON     = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" 
 export function renderServices() {
   const grid = document.getElementById('packages-grid');
   if (!grid) return;
-  grid.innerHTML = PACKAGES.map(pkg => `
+
+  grid.innerHTML = PACKAGES.map((pkg, i) => {
+    const included = includedSets[i];
+    const notIncluded = ALL_FEATURES.filter(f => !included.has(f.id));
+    const ownFeatureLabels = pkg.ownFeatures.map(id => ALL_FEATURES.find(f => f.id === id)?.label).filter(Boolean);
+
+    const includesRows = [
+      pkg.inheritsFrom
+        ? `<li class="package-feature package-feature--inherit">${CHECK_INC}<span>Everything in ${pkg.inheritsFrom}</span></li>`
+        : '',
+      ...ownFeatureLabels.map(label => `<li class="package-feature">${CHECK_INC}<span>${label}</span></li>`),
+      ...notIncluded.map(f => `<li class="package-feature package-feature--no">${X_ICON}<span>${f.label}</span></li>`),
+    ].join('');
+
+    return `
     <article class="package-card ${pkg.popular ? 'package-card--popular' : ''}" role="listitem">
       ${pkg.popular ? '<span class="package-badge">Most Popular</span>' : ''}
       <div class="package-top">
@@ -113,13 +133,10 @@ export function renderServices() {
       <div class="package-includes">
         <p class="package-section-label">What's included:</p>
         <ul class="package-features">
-          ${ALL_FEATURES.map(f => {
-            const inc = pkg.included.has(f.id);
-            return `<li class="package-feature ${inc ? '' : 'package-feature--no'}">${inc ? CHECK_INC : X_ICON}<span>${f.label}</span></li>`;
-          }).join('')}
+          ${includesRows}
         </ul>
       </div>
       <a href="#book" class="btn ${pkg.popular ? 'btn-primary-inv' : 'btn-primary'} package-cta">Get Started</a>
-    </article>
-  `).join('');
+    </article>`;
+  }).join('');
 }
