@@ -102,7 +102,10 @@ export function renderServices() {
 
   grid.innerHTML = PACKAGES.map((pkg, i) => {
     const included = includedSets[i];
-    const notIncluded = ALL_FEATURES.filter(f => !included.has(f.id));
+    const nextPkg = PACKAGES[i + 1];
+    const notIncluded = nextPkg
+      ? nextPkg.ownFeatures.map(id => ALL_FEATURES.find(f => f.id === id)).filter(Boolean)
+      : [];
     const ownFeatureLabels = pkg.ownFeatures.map(id => ALL_FEATURES.find(f => f.id === id)?.label).filter(Boolean);
 
     const includesRows = [
