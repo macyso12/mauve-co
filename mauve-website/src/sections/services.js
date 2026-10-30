@@ -1,7 +1,27 @@
+export const ALL_FEATURES = [
+  { id: 'setup',            label: 'Setup & breakdown' },
+  { id: 'vendor-receiving', label: 'Vendor receiving & directing' },
+  { id: 'guest-assist',     label: 'Guest assistance & coordination' },
+  { id: 'consultation',     label: 'Initial consultation (1–2 sessions)' },
+  { id: 'assistant',        label: 'Assistant coordinator' },
+  { id: 'vendor-comm',      label: 'Vendor communication' },
+  { id: 'timeline-mgmt',    label: 'Timeline management' },
+  { id: 'venue-walkthrough',label: 'Venue walkthrough' },
+  { id: 'full-day',         label: 'Full day-of coordination (ceremony + reception)' },
+  { id: 'locations',        label: 'Supports up to 2 locations' },
+  { id: 'vendor-recs',      label: 'Vendor recommendations' },
+  { id: 'timeline-creation',label: 'Timeline creation' },
+  { id: 'rehearsal',        label: 'Rehearsal coordination' },
+  { id: 'unlimited-email',  label: 'Unlimited email contact (final 4–6 weeks)' },
+  { id: 'venue-scouting',   label: 'Venue scouting & booking assistance' },
+  { id: 'vendor-sourcing',  label: 'Full vendor sourcing & contract review' },
+  { id: 'budget',           label: 'Budget tracking & RSVP management' },
+  { id: 'engagement',       label: 'Engagement party / shower coordination' },
+];
+
 export const PACKAGES = [
   {
     id: 'hourly-helper',
-    num: '1',
     name: 'Hourly Helper',
     price: '$80',
     unit: '/hr',
@@ -12,23 +32,10 @@ export const PACKAGES = [
       'You just need extra hands for a few hours',
       "You're a creative DIYer. Let us help to do it together 🤍",
     ],
-    features: [
-      'Setup & breakdown',
-      'Vendor receiving & directing',
-      'Guest assistance & coordination',
-      '1 initial booking call',
-    ],
-    notIncluded: [
-      'Assistant coordinator',
-      'Vendor communication',
-      'Timeline building',
-      'Venue walkthrough',
-      'Full day management',
-    ],
+    included: new Set(['setup', 'vendor-receiving', 'guest-assist', 'consultation']),
   },
   {
     id: 'day-of-coordinator',
-    num: '2',
     name: 'Day-Of Coordinator',
     price: 'From $800',
     unit: '',
@@ -39,18 +46,14 @@ export const PACKAGES = [
       'You want full coverage without paying for months of planning',
       'You need to satisfy venue requirements of an onsite Day-Of Coordinator (DOC)',
     ],
-    features: [
-      'Full day-of coordination (ceremony + reception)',
-      'Timeline management',
-      'Vendor receiving & directing',
-      '1 Lead coordinator + 1 Assistant on wedding day',
-      'Supports up to 2 locations',
-      '1 initial booking call',
-    ],
+    included: new Set([
+      'setup', 'vendor-receiving', 'guest-assist', 'consultation',
+      'assistant', 'vendor-comm', 'timeline-mgmt', 'venue-walkthrough',
+      'full-day', 'locations',
+    ]),
   },
   {
     id: 'partial-planning',
-    num: '3',
     name: 'Partial Planning',
     price: 'From $1,500',
     unit: '',
@@ -61,20 +64,15 @@ export const PACKAGES = [
       'You want a coordinator for the final stretch and wedding day',
       'You need vendor guidance without full planning fees',
     ],
-    features: [
-      'Initial consultation (1–2 sessions)',
-      'Vendor recommendations',
-      'Timeline creation & management',
-      'Rehearsal coordination',
-      'Full day-of coordination',
-      'Unlimited email contact (final 4–6 weeks)',
-      '1 venue walkthrough',
-      'Lead coordinator + assistant on wedding day',
-    ],
+    included: new Set([
+      'setup', 'vendor-receiving', 'guest-assist', 'consultation',
+      'assistant', 'vendor-comm', 'timeline-mgmt', 'venue-walkthrough',
+      'full-day', 'locations', 'vendor-recs', 'timeline-creation',
+      'rehearsal', 'unlimited-email',
+    ]),
   },
   {
     id: 'full-coordination',
-    num: '4',
     name: 'Full Coordination',
     price: 'From $3,500',
     unit: '',
@@ -85,15 +83,7 @@ export const PACKAGES = [
       'You want someone to handle vendors, budget, and logistics',
       'You want the most stress-free planning experience possible',
     ],
-    features: [
-      'Everything in Partial Planning',
-      'Venue scouting & booking assistance',
-      'Full vendor sourcing & contract review',
-      'Budget tracking & RSVP management',
-      'Engagement party / shower coordination',
-      'Unlimited contact throughout planning',
-      'Lead coordinator + assistant on wedding day',
-    ],
+    included: new Set(ALL_FEATURES.map(f => f.id)),
   },
 ];
 
@@ -122,19 +112,14 @@ export function renderServices() {
       </div>
       <hr class="package-divider">
       <div class="package-includes">
-        <p class="package-section-label">Includes:</p>
+        <p class="package-section-label">What's included:</p>
         <ul class="package-features">
-          ${pkg.features.map(f => `<li class="package-feature">${CHECK_INC}<span>${f}</span></li>`).join('')}
+          ${ALL_FEATURES.map(f => {
+            const inc = pkg.included.has(f.id);
+            return `<li class="package-feature ${inc ? '' : 'package-feature--no'}">${inc ? CHECK_INC : X_ICON}<span>${f.label}</span></li>`;
+          }).join('')}
         </ul>
       </div>
-      ${pkg.notIncluded ? `
-      <hr class="package-divider">
-      <div class="package-not-included">
-        <p class="package-section-label">Not included:</p>
-        <ul class="package-features">
-          ${pkg.notIncluded.map(f => `<li class="package-feature package-feature--no">${X_ICON}<span>${f}</span></li>`).join('')}
-        </ul>
-      </div>` : ''}
       <a href="#book" class="btn ${pkg.popular ? 'btn-primary-inv' : 'btn-primary'} package-cta">Get Started</a>
     </article>
   `).join('');
