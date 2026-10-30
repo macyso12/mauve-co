@@ -1,22 +1,21 @@
 export const ALL_FEATURES = [
   { id: 'setup',            label: 'Setup & breakdown' },
-  { id: 'vendor-receiving', label: 'Vendor receiving & directing' },
+  { id: 'vendor-receiving', label: 'Vendor directing' },
   { id: 'guest-assist',     label: 'Guest assistance & coordination' },
   { id: 'consultation',     label: 'Initial consultation (1–2 sessions)' },
   { id: 'assistant',        label: 'Assistant coordinator' },
   { id: 'vendor-comm',      label: 'Vendor communication' },
-  { id: 'timeline-mgmt',    label: 'Timeline management' },
+  { id: 'timeline-mgmt',    label: 'Timeline creation & management' },
   { id: 'venue-walkthrough',label: 'Venue walkthrough' },
-  { id: 'full-day',         label: 'Full day-of coordination (ceremony + reception)' },
+  { id: 'full-day',         label: 'Full day-of coordination' },
   { id: 'locations',        label: 'Supports up to 2 locations' },
   { id: 'vendor-recs',      label: 'Vendor recommendations' },
-  { id: 'timeline-creation',label: 'Timeline creation' },
   { id: 'rehearsal',        label: 'Rehearsal coordination' },
-  { id: 'unlimited-email',  label: 'Unlimited email contact (final 4–6 weeks)' },
-  { id: 'venue-scouting',   label: 'Venue scouting & booking assistance' },
-  { id: 'vendor-sourcing',  label: 'Full vendor sourcing & contract review' },
+  { id: 'unlimited-email',  label: 'Unlimited email support' },
+  { id: 'venue-scouting',   label: 'Venue scouting assistance' },
+  { id: 'vendor-sourcing',  label: 'Vendor sourcing & contract review' },
   { id: 'budget',           label: 'Budget tracking & RSVP management' },
-  { id: 'engagement',       label: 'Engagement party / shower coordination' },
+  { id: 'engagement',       label: 'Engagement & shower coordination' },
 ];
 
 export const PACKAGES = [
@@ -67,7 +66,7 @@ export const PACKAGES = [
     included: new Set([
       'setup', 'vendor-receiving', 'guest-assist', 'consultation',
       'assistant', 'vendor-comm', 'timeline-mgmt', 'venue-walkthrough',
-      'full-day', 'locations', 'vendor-recs', 'timeline-creation',
+      'full-day', 'locations', 'vendor-recs',
       'rehearsal', 'unlimited-email',
     ]),
   },
